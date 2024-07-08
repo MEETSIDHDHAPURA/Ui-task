@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-family: "Noto Sans Arabic", sans-serif;
+  font-weight: 500;
+  font-style: normal;  
+}
