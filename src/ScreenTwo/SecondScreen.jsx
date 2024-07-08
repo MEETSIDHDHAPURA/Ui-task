@@ -97,7 +97,9 @@ const SecondScreen = () => {
             border={"border-[#5982f180]"}
             placeholder={"Search"}
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => {
+              setSearchText(e.target.value), console.log(e.target.value);
+            }}
           />
           <Dropdown
             dark={

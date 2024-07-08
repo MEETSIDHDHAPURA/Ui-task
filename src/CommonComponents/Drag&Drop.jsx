@@ -5,7 +5,7 @@ import Buttons from "../CommonComponents/Buttons";
 import Text from "../CommonComponents/Text";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
- 
+
 const DragandDrop = () => {
   const Data = [
     {
@@ -32,7 +32,7 @@ const DragandDrop = () => {
     {
       name: "Eli Meekins",
       phone: "1626375602",
-      email: "1626375602",
+      email: "emeekins11@gizmodo.com",
       location: "Cisownica",
       age: "78",
     },
