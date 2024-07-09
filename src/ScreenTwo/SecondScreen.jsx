@@ -170,7 +170,7 @@ const SecondScreen = () => {
             </div>
           )}
         </div>
-        <div className="my-10">
+        <div className="dark:my-5">
           <Pagination
             totalPages={totalPages}
             currentPage={currentPage}
