@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "../CommonComponents/Button"
+
 
 const Pagination = ({ totalPages, currentPage, onPageChange }) => {
   const [page, setPage] = useState(currentPage);
@@ -30,41 +32,41 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 
   return (
     <div className="pagination flex justify-center space-x-3">
-      <button
+      <Button
         onClick={handlePrevious}
         disabled={page === 1}
         className={`px-3 py-1 border rounded-full ${
           page === 1
-            ? "bg-gray-200 dark:bg-zinc-800"
-            : "bg-white dark:bg-zinc-800 hover:bg-gray-100"
+            ? "bg-gray-200 bg-zinc"
+            : "bg-white bg-zinc hover:bg-gray-100"
         }`}
       >
         <i className="fa-solid fa-chevron-left dark:text-white"></i>
-      </button>
+      </Button>
       {[...Array(totalPages)].map((_, index) => (
-        <button
+        <Button
           key={index}
           onClick={() => handlePageClick(index + 1)}
-          className={`px-3 py-1 border dark:border-gray-400 rounded-full ${
+          className={`px-3 py-1 border dark:border-secondary rounded-full ${
             page === index + 1
               ? "bg-blue-500 text-white dark:border-none"
-              : "bg-white dark:bg-zinc-800 dark:text-white  hover:bg-gray-100"
+              : "bg-white bg-zinc dark:text-white  hover:bg-gray-100"
           }`}
         >
           {index + 1}
-        </button>
+        </Button>
       ))}
-      <button
+      <Button
         onClick={handleNext}
         disabled={page === totalPages}
         className={`px-3 py-1 border rounded-full ${
           page === totalPages
-            ? "bg-gray-200 dark:bg-zinc-800"
-            : "bg-white dark:bg-zinc-800 hover:bg-gray-100"
+            ? "bg-gray-200 bg-zinc"
+            : "bg-white bg-zinc hover:bg-gray-100"
         }`}
       >
         <i className="fa-solid fa-chevron-right dark:text-white"></i>
-      </button>
+      </Button>
     </div>
   );
 };

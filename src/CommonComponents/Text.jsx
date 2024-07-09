@@ -1,22 +1,7 @@
-import React from "react";
+import React, { Children } from "react";
 
-const Text = ({
-  label,
-  bgcolor,
-  fontSize,
-  fontWeight,
-  color,
-  rounded,
-  padding,
-  dark,
-}) => {
-  return (
-    <p
-      className={`${bgcolor} ${dark} ${fontSize} ${fontWeight} ${color} ${padding} ${rounded} `}
-    >
-      {label}
-    </p>
-  );
+const Text = ({ className, children }) => {
+  return <p className={className}>{children}</p>;
 };
 
 export default Text;

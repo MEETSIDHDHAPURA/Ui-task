@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GridLayout from "react-grid-layout";
 import { CSVLink } from "react-csv";
-import Buttons from "../CommonComponents/Buttons";
+import Button from "../CommonComponents/Button";
 import Text from "../CommonComponents/Text";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
@@ -83,21 +83,21 @@ const DragandDrop = () => {
     <div>
       <div className="flex w-full justify-between items-center mb-3">
         <Text
-          label={"List"}
-          fontSize={"text-2xl"}
-          padding={"px-2"}
-          color={"text-black dark:text-gray-300"}
-          fontWeight={"font-semibold"}
-        />
+          className={
+            "text-2xl px-2 text-black dark:text-gray-300 font-semibold"
+          }
+        >
+          List
+        </Text>
         <div>
           <CSVLink data={items}>
-            <Buttons
-              label={"Export Data"}
-              rounded={"rounded-lg"}
-              padding={"px-5 mx-3"}
-              bgcolor={"bg-blue-600"}
-              color={"text-white"}
-            />
+            <Button
+              className={
+                "dark:text-primary bg-blue-600 hover:bg-transparent border border-blue-600 text-white hover:text-blue-600 dark:hover:border-gray-400 rounded-lg px-6 mx-3 py-2 mt-3"
+              }
+            >
+              Export Data
+            </Button>
           </CSVLink>
         </div>
       </div>
@@ -114,7 +114,7 @@ const DragandDrop = () => {
           <div
             key={item.email}
             data-grid={{ x: 0, y: items.indexOf(item), w: 1, h: 1 }}
-            className="flex items-center dark:bg-zinc-700 dark:text-gray-200 bg-[#efefef] p-4 rounded-lg"
+            className="flex items-center dark:bg-zinc dark:text-gray-200 bg-[#efefef] p-4 rounded-lg"
           >
             <button className="drag-handle w-16">
               <i className="fa-solid fa-list-ul"></i>

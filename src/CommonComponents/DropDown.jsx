@@ -32,7 +32,6 @@ const Dropdown = ({
 
   return (
     <div className={`px-4 grid min-w-56 ${gridcols} gap-2 items-center`}>
-      
       <div className={`${colspen} relative`}>
         <div className="relative">
           <button
@@ -49,7 +48,7 @@ const Dropdown = ({
             )}
           </button>
           {dropdownOpen && (
-            <div className="absolute mt-1 w-full rounded-md dark:bg-zinc-800 bg-white shadow-lg max-h-60 overflow-auto z-10">
+            <div className="absolute mt-1 w-full rounded-md bg-zinc bg-white shadow-lg max-h-60 overflow-auto z-10">
               <ul className="text-sm text-gray-700">
                 {dataset.map((option, index) => (
                   <li
@@ -64,7 +63,7 @@ const Dropdown = ({
                         readOnly
                       />
                     )}
-                    <p className="dark:text-gray-400">{option.location}</p>
+                    <p className="dark:text-primary">{option.location}</p>
                   </li>
                 ))}
               </ul>

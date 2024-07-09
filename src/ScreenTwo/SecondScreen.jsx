@@ -1,60 +1,27 @@
-import React, { useEffect, useState } from "react";
 import TextField from "../CommonComponents/TextField";
 import Text from "../CommonComponents/Text";
 import Pagination from "../CommonComponents/Pagination";
 import Dropdown from "../CommonComponents/DropDown";
 import Switch from "../CommonComponents/Switch";
 import Loading from "../CommonComponents/Loading";
+import useFetch from "../CustomHook/useFetch";
 
 const SecondScreen = () => {
-  const [selectedOptions, setSelectedOptions] = useState([]);
-  const [tableData, setTableData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchText, setSearchText] = useState("");
-  const [isSwitchActive, setIsSwitchActive] = useState(false);
+  const {
+    setCurrentPage,
+    filteredData,
+    searchText,
+    setSearchText,
+    isSwitchActive,
+    setIsSwitchActive,
+    selectedOptions,
+    setSelectedOptions,
+    currentPage,
+    setFilteredData,
+    tableData,
+  } = useFetch("https://dev.carzup.in/api/pricelist/test-mock");
+
   const itemsPerPage = 10;
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const url = "https://dev.carzup.in/api/pricelist/test-mock";
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Error While fetching data");
-        }
-        const data = await response.json();
-        setTableData(data.data);
-        setFilteredData(data.data);
-      } catch (error) {
-        console.error("Error fetching data", error);
-      }
-    };
-
-    getData();
-  }, []);
-
-  useEffect(() => {
-    const filterData = () => {
-      let filtered = tableData.filter((item) =>
-        item.name.toLowerCase().includes(searchText.toLowerCase())
-      );
-
-      if (selectedOptions.length > 0) {
-        filtered = filtered.filter((item) =>
-          selectedOptions.includes(item.location)
-        );
-      }
-      if (isSwitchActive) {
-        filtered = filtered.filter((item) => item.active);
-      }
-
-      setFilteredData(filtered);
-      setCurrentPage(1);
-    };
-
-    filterData();
-  }, [searchText, selectedOptions, tableData, isSwitchActive]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -83,12 +50,10 @@ const SecondScreen = () => {
     <div className="h-[100vh]">
       <div>
         <Text
-          label={"Table"}
-          fontSize={"text-2xl"}
-          padding={"p-2"}
-          color={"text-black dark:text-gray-300"}
-          fontWeight={"font-semibold"}
-        />
+          className={"text-2xl p-2 text-black dark:text-primary font-semibold"}
+        >
+          Table
+        </Text>
         <hr className="bg-[#5982f180]" />
       </div>
       <div>
@@ -103,7 +68,7 @@ const SecondScreen = () => {
           />
           <Dropdown
             dark={
-              "dark:border-none hover:dark:bg-zinc-800 dark:bg-zinc-800 dark:text-gray-400"
+              "dark:border-none hover:bg-zinc dark:bg-zinc dark:text-primary"
             }
             label={"Select Location"}
             gridcols={"grid-cols-6"}
@@ -117,24 +82,24 @@ const SecondScreen = () => {
             onToggle={() => handletoggleSwitchActive()}
           />
         </div>
-        <div className="p-2 my-5 min-h-[450px] dark:text-gray-300">
+        <div className="p-2 my-5 min-h-[450px] dark:text-primary">
           <div className="grid grid-cols-11">
-            <div className="p-2 dark:border-none dark:bg-zinc-800 bg-[#96C9F480] font-bold flex justify-center items-center rounded-tl-lg border border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-header font-bold flex justify-center items-center rounded-tl-lg border border-[#5982f180]">
               <h1>id</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc-800 bg-[#96C9F480] col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Name</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc-800 bg-[#96C9F480] col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Phone</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc-800 bg-[#96C9F480] col-span-3 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-3 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Email</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc-800 bg-[#96C9F480] col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Location</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc-800 bg-[#96C9F480] font-bold flex justify-center items-center rounded-tr-lg border-y border-r border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-header font-bold flex justify-center items-center rounded-tr-lg border-y border-r border-[#5982f180]">
               <h1>Active</h1>
             </div>
           </div>
@@ -157,9 +122,7 @@ const SecondScreen = () => {
                   <h1>{item.location}</h1>
                 </div>
                 <div className="dark:border-none dark:p-3 text-sm p-2 flex justify-center items-center  border-b border-r border-[#5982f180]">
-                  <Switch
-                    isActive={item.active}
-                  />
+                  <Switch isActive={item.active} />
                 </div>
               </div>
             ))
