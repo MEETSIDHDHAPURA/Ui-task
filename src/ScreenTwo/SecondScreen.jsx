@@ -159,7 +159,6 @@ const SecondScreen = () => {
                 <div className="dark:border-none dark:p-3 text-sm p-2 flex justify-center items-center  border-b border-r border-[#5982f180]">
                   <Switch
                     isActive={item.active}
-                    onToggle={() => handleSwitchActive(index)}
                   />
                 </div>
               </div>
