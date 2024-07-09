@@ -48,7 +48,7 @@ const Dropdown = ({
             )}
           </button>
           {dropdownOpen && (
-            <div className="absolute mt-1 w-full rounded-md bg-zinc bg-white shadow-lg max-h-60 overflow-auto z-10">
+            <div className="absolute mt-1 w-full rounded-md dark:bg-zinc bg-white shadow-lg max-h-60 overflow-auto z-10">
               <ul className="text-sm text-gray-700">
                 {dataset.map((option, index) => (
                   <li

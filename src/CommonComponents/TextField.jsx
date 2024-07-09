@@ -4,7 +4,6 @@ const TextField = ({
   bgcolor,
   onChange,
   border,
-  dark,
   value,
 }) => {
   return (
