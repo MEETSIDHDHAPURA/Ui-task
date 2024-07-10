@@ -84,22 +84,22 @@ const SecondScreen = () => {
         </div>
         <div className="p-2 my-5 min-h-[450px] dark:text-primary">
           <div className="grid grid-cols-11">
-            <div className="p-2 dark:border-none dark:bg-zinc bg-header font-bold flex justify-center items-center rounded-tl-lg border border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-dark_header font-bold flex justify-center items-center rounded-tl-lg border border-[#5982f180]">
               <h1>id</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-dark_header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Name</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-dark_header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Phone</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-3 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-dark_header col-span-3 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Email</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc bg-header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-dark_header col-span-2 font-bold flex justify-center items-center border-r border-y border-[#5982f180]">
               <h1>Location</h1>
             </div>
-            <div className="p-2 dark:border-none dark:bg-zinc bg-header font-bold flex justify-center items-center rounded-tr-lg border-y border-r border-[#5982f180]">
+            <div className="p-2 dark:border-none dark:bg-zinc bg-dark_header font-bold flex justify-center items-center rounded-tr-lg border-y border-r border-[#5982f180]">
               <h1>Active</h1>
             </div>
           </div>

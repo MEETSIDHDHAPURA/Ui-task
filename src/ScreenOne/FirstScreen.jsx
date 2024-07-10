@@ -203,12 +203,11 @@ const FirstScreen = () => {
           <Button
             onClick={handleClickOpen}
             className={
-              "bg-blue-600 hover:bg-transparent border border-blue-600 text-white hover:text-blue-600 dark:hover:border-gray-400 rounded-lg px-6 py-2 mt-3"
+              "bg-blue-600 border-none border-blue-600 text-white dark:hover:border-gray-400 rounded-lg px-6 py-2 mt-3"
             }
           >
             Open Dialog
           </Button>
-          <Button label={"Save"} />
         </div>
         <Dialog open={open} onClose={handleClose}>
           <div

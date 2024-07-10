@@ -91,11 +91,7 @@ const DragandDrop = () => {
         </Text>
         <div>
           <CSVLink data={items}>
-            <Button
-              className={
-                "dark:text-primary bg-blue-600 hover:bg-transparent border border-blue-600 text-white hover:text-blue-600 dark:hover:border-gray-400 rounded-lg px-6 mx-3 py-2 mt-3"
-              }
-            >
+            <Button className={"mx-3 text-white border-none"}>
               Export Data
             </Button>
           </CSVLink>

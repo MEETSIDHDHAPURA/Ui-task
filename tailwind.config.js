@@ -6,8 +6,8 @@ export default {
     extend: {
       colors: {
         dark: "#151515",
-        card: "#1c2022",
-        header: "#96C9F480",
+        dark_card: "#1c2022",
+        dark_header: "#96C9F480",
         zinc: "#27272A",
       },
       textColor: {

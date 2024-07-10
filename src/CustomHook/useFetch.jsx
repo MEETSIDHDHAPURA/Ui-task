@@ -1,5 +1,22 @@
 import { useEffect, useState } from "react";
 
+
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const timeOute = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(timeOute);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
+
 const useFetch = (url) => {
   const [tableData, setTableData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -7,6 +24,8 @@ const useFetch = (url) => {
   const [isSwitchActive, setIsSwitchActive] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const debouncedSearchText = useDebounce(searchText, 300);
 
   const getData = async () => {
     try {
@@ -25,7 +44,7 @@ const useFetch = (url) => {
   useEffect(() => {
     const filterData = () => {
       let filtered = tableData.filter((item) =>
-        item.name.toLowerCase().includes(searchText.toLowerCase())
+        item.name.toLowerCase().includes(debouncedSearchText.toLowerCase())
       );
 
       if (selectedOptions.length > 0) {
@@ -42,11 +61,11 @@ const useFetch = (url) => {
     };
 
     filterData();
-  }, [searchText, selectedOptions, tableData, isSwitchActive]);
+  }, [debouncedSearchText, selectedOptions, tableData, isSwitchActive]);
 
   useEffect(() => {
     getData();
-  }, [searchText, selectedOptions, isSwitchActive]);
+  }, [debouncedSearchText, selectedOptions, isSwitchActive]);
 
   return {
     setCurrentPage,
