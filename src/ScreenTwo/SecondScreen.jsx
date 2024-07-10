@@ -68,7 +68,7 @@ const SecondScreen = () => {
           />
           <Dropdown
             dark={
-              "dark:border-none hover:bg-zinc dark:bg-zinc dark:text-primary"
+              "dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-primary"
             }
             label={"Select Location"}
             gridcols={"grid-cols-6"}

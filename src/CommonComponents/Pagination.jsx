@@ -35,7 +35,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
       <Button
         onClick={handlePrevious}
         disabled={page === 1}
-        className={`px-3 py-1 border rounded-full ${
+        className={`px-2 py-2 border-secondary rounded-full ${
           page === 1
             ? "bg-gray-200 dark:bg-zinc"
             : "bg-white dark:bg-zinc hover:bg-gray-100"
@@ -47,7 +47,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
         <Button
           key={index}
           onClick={() => handlePageClick(index + 1)}
-          className={`px-3 py-1 border dark:border-secondary rounded-full ${
+          className={`px-3 py-1 border-secondary ${
             page === index + 1
               ? "bg-blue-500 text-white dark:border-none"
               : "bg-white dark:bg-zinc dark:text-white  hover:bg-gray-100"
@@ -59,7 +59,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
       <Button
         onClick={handleNext}
         disabled={page === totalPages}
-        className={`px-3 py-1 border rounded-full ${
+        className={`px-3 py-1 border-secondary ${
           page === totalPages
             ? "bg-gray-200 dark:bg-zinc"
             : "bg-white dark:bg-zinc hover:bg-gray-100"

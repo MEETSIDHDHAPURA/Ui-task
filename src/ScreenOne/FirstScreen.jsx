@@ -158,7 +158,7 @@ const FirstScreen = () => {
           gridcols={"grid-cols-8"}
           colspen={"col-span-4"}
           selectedOptions={selectedOptions}
-          dark={"dark:border-none hover:bg-zinc dark:bg-zinc dark:text-primary"}
+          dark={"dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-primary"}
           setSelectedOptions={setSelectedOptions}
           isMultiSelect={true}
         />
@@ -167,7 +167,7 @@ const FirstScreen = () => {
           label={"Select Animal"}
           colspen={"col-span-3"}
           gridcols={"grid-cols-9"}
-          dark={"dark:border-none hover:bg-zinc dark:bg-zinc dark:text-primary"}
+          dark={"dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-primary"}
           selectedOptions={selectedOptionstwo}
           setSelectedOptions={setSelectedOptionstwo}
         />
@@ -177,7 +177,7 @@ const FirstScreen = () => {
           colspen={"col-span-3"}
           gridcols={"grid-cols-12"}
           selectedOptions={selectedOptionsthree}
-          dark={"dark:border-none hover:bg-zinc dark:bg-zinc dark:text-primary"}
+          dark={"dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-primary"}
           setSelectedOptions={setSelectedOptionsthree}
         />
       </div>
