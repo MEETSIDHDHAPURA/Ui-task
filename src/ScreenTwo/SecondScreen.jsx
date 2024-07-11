@@ -27,12 +27,6 @@ const SecondScreen = () => {
     setCurrentPage(pageNumber);
   };
 
-  const handleSwitchActive = (index) => {
-    const newData = [...filteredData];
-    newData[index].active = !newData[index].active;
-    setFilteredData(newData);
-  };
-
   const handletoggleSwitchActive = () => {
     setIsSwitchActive(!isSwitchActive);
   };

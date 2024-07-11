@@ -8,12 +8,12 @@ import useDarkMode from "./CustomHook/useDarkMode";
 
 const App = () => {
   const [screen, setScreen] = useState("first");
-  const [darkMode, setDarkMode] = useDarkMode();
-  const [isSwitchActive, setIsSwitchActive] = useState(darkMode);
+  const {DarkMode, setDarkMode} = useDarkMode();
+  const [isSwitchActive, setIsSwitchActive] = useState(false);
 
   const handleSwitchActive = () => {
     setIsSwitchActive(!isSwitchActive);
-    setDarkMode();
+    setDarkMode(DarkMode);
   };
 
   const ShowScreen = () => {
