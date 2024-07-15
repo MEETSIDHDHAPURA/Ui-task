@@ -5,17 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: "#151515",
-        dark_card: "#1c2022",
-        dark_header: "#96C9F480",
-        zinc: "#27272A",
+        primary:"#EEF5FF", // primary for light
+        dark: "#151515", // dark for darkmode
+        dark_card: "#1c2022", // for darkcard only 
+        dark_header: "#96C9F480", // for darkheader
+        zinc: "#27272A", // zinc use for common purpose
       },
       textColor: {
-        primary: "#9CA3AF",
+        secondary: "#9CA3AF", // text secondary is use for dark mode 
       },
       borderColor: {
-        primary: "#5982f120",
-        secondary: "#9CA3AF",
+        primary: "#5982f120", // borderPrimary for light mode 
+        secondary: "#9CA3AF", // bordersecondary for dark mode
       },
     },
   },

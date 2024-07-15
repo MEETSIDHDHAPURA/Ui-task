@@ -63,7 +63,7 @@ const Dropdown = ({
                         readOnly
                       />
                     )}
-                    <p className="dark:text-primary">{option.location}</p>
+                    <p className="dark:text-secondary">{option.location}</p>
                   </li>
                 ))}
               </ul>

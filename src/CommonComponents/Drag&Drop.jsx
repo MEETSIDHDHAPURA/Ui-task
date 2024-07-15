@@ -59,8 +59,16 @@ const DragandDrop = () => {
     },
   ];
 
+  // To Store the data
   const [items, setItems] = useState(Data);
 
+  // Layout is for layout
+  // i for unique identity
+  // x for horizontal
+  // y for verticla
+  // w for width
+  // h for height
+  // static is use for drag
   const layout = items.map((item, index) => ({
     i: item.email,
     x: 0,
@@ -70,6 +78,7 @@ const DragandDrop = () => {
     static: false,
   }));
 
+  // onLayoutChnage is use for darg and drop
   const onLayoutChange = (newLayout) => {
     const sortedItems = [...items].sort((a, b) => {
       const layoutA = newLayout.find((layoutItem) => layoutItem.i === a.email);
@@ -82,6 +91,7 @@ const DragandDrop = () => {
   return (
     <div>
       <div className="flex w-full justify-between items-center mb-3">
+        {/* Text come from common Components  */}
         <Text
           className={
             "text-2xl px-2 text-black dark:text-gray-300 font-semibold"
@@ -90,6 +100,7 @@ const DragandDrop = () => {
           List
         </Text>
         <div>
+          {/* Export Data is use for Exporting Data To ExcelSheet */}
           <CSVLink data={items}>
             <Button className={"mx-3 text-white border-none"}>
               Export Data
@@ -106,6 +117,7 @@ const DragandDrop = () => {
         onLayoutChange={onLayoutChange}
         draggableHandle=".drag-handle"
       >
+        {/* Maping the data */}
         {items.map((item, index) => (
           <div
             key={item.email}

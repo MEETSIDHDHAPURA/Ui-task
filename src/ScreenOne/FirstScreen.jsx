@@ -10,23 +10,36 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const FirstScreen = () => {
+
+  // UseStates
+  // open State is use for dailog box
   const [open, setOpen] = useState(false);
+  
+  // SelectedOptions State is use for store the vlaue of dropdown
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  // SelectedOptionstwo is use for second dropdown
   const [selectedOptionstwo, setSelectedOptionstwo] = useState([]);
+
+  // SelectedOptionsthree is use for third dropdown
   const [selectedOptionsthree, setSelectedOptionsthree] = useState([]);
 
+  // handleClickopen is use to open the dialog box
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  // handleClose is use to close the dialog box
   const handleClose = () => {
     setOpen(false);
   };
+  // popup is use for show the toast in screen
   const popup = () => {
     toast("Data Saved SuccessFully");
     handleClose();
   };
 
+  // accordion data
   const accordiondata = [
     {
       title: "Section 1",
@@ -42,6 +55,7 @@ const FirstScreen = () => {
     },
   ];
 
+  // dropdown data
   const location = [
     {
       location: "Ahmedabad",
@@ -61,6 +75,7 @@ const FirstScreen = () => {
     },
   ];
 
+  // dropdown data second
   const animal = [
     {
       location: "Animal",
@@ -84,6 +99,8 @@ const FirstScreen = () => {
     <>
       <div className="flex flex-col px-3 gap-4">
         <div className="flex flex-col gap-4">
+          {/* Text is a common component  */}
+
           <Text className={"font-semibold dark:text-white"}>
             1). First Field
           </Text>
@@ -152,13 +169,16 @@ const FirstScreen = () => {
         </Text>
       </div>
       <div className="flex flex-col gap-4">
+        {/* Dropdown is common Component  */}
         <Dropdown
           dataset={location}
           label={"Select Car"}
           gridcols={"grid-cols-8"}
           colspen={"col-span-4"}
           selectedOptions={selectedOptions}
-          dark={"dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-primary"}
+          dark={
+            "dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-secondary"
+          }
           setSelectedOptions={setSelectedOptions}
           isMultiSelect={true}
         />
@@ -167,7 +187,9 @@ const FirstScreen = () => {
           label={"Select Animal"}
           colspen={"col-span-3"}
           gridcols={"grid-cols-9"}
-          dark={"dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-primary"}
+          dark={
+            "dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-secondary"
+          }
           selectedOptions={selectedOptionstwo}
           setSelectedOptions={setSelectedOptionstwo}
         />
@@ -177,7 +199,9 @@ const FirstScreen = () => {
           colspen={"col-span-3"}
           gridcols={"grid-cols-12"}
           selectedOptions={selectedOptionsthree}
-          dark={"dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-primary"}
+          dark={
+            "dark:border-none dark:hover:bg-zinc dark:bg-zinc dark:text-secondary"
+          }
           setSelectedOptions={setSelectedOptionsthree}
         />
       </div>
@@ -187,6 +211,7 @@ const FirstScreen = () => {
         </Text>
       </div>
       <div className="flex flex-col px-4 gap-4">
+        /{/* Accordion is common Component */}
         <Accordion
           items={accordiondata}
           hover="hover:bg-gray-300"
@@ -200,6 +225,7 @@ const FirstScreen = () => {
       </div>
       <div className="flex justify-end px-4 ">
         <div className="my-5">
+          {/* Button use form Common Component */}
           <Button
             onClick={handleClickOpen}
             className={
@@ -209,6 +235,8 @@ const FirstScreen = () => {
             Open Dialog
           </Button>
         </div>
+
+        {/* Dialog file */}
         <Dialog open={open} onClose={handleClose}>
           <div
             className={`fixed inset-0 flex items-center justify-center ${
@@ -219,8 +247,9 @@ const FirstScreen = () => {
               className="fixed inset-0 bg-black bg-opacity-50"
               onClick={handleClose}
             ></div>
-            <div className="bg-white dark:bg-zinc dark:text-primary min-h-56 max-w-[800px] p-4 rounded-lg z-10">
+            <div className="bg-white dark:bg-zinc dark:text-secondary min-h-56 max-w-[800px] p-4 rounded-lg z-10">
               <div className="mb-2 px-2 flex justify-between items-center">
+                {/* dialog heading useing common text component */}
                 <Text className={"text-lg"}>DialogBox</Text>
                 <div onClick={handleClose}>
                   <i className="fa-sharp fa-solid fa-xmark text-2xl cursor-pointer"></i>
@@ -228,11 +257,14 @@ const FirstScreen = () => {
               </div>
               <hr />
               <div className="p-2 flex justify-center flex-col">
+                {/* dialog image */}
                 <img
                   alt="image"
                   src={image}
                   className="h-96 my-2 rounded-2xl"
                 ></img>
+
+                {/* Dialog Content text */}
                 <Text>
                   The 2024 ICC Men's T20 World Cup was the ninth edition of the
                   ICC Men's T20 World Cup. It was co-hosted by the West Indies
@@ -244,6 +276,8 @@ const FirstScreen = () => {
               </div>
               <hr />
               <div className="flex justify-end gap-3">
+
+                {/* Dialog Action Buttons */}
                 <Button
                   onClick={handleClose}
                   className={
