@@ -26,7 +26,7 @@ const Loading = ({ filteredData }) => {
         </div>
       ) : (
         <div>
-          {filteredData.length > 0 ? null : <img alt="" src={Notfound} className="size-28"></img>}
+          {filteredData.length > 0 ? null : <img alt="" src={Notfound} className="size-28"></img> }
         </div>
       )}
     </>

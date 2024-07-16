@@ -3,8 +3,10 @@ import Button from "../CommonComponents/Button"
 
 
 const Pagination = ({ totalPages, currentPage, onPageChange }) => {
+  // this is the Pagination store the value 
   const [page, setPage] = useState(currentPage);
 
+  // handlePrevious is use to go to PreviousPage
   const handlePrevious = () => {
     if (page > 1) {
       const newPage = page - 1;
@@ -13,6 +15,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
     }
   };
 
+  // handleNext is use to go nextPage
   const handleNext = () => {
     if (page < totalPages) {
       const newPage = page + 1;
@@ -21,17 +24,20 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
     }
   };
 
+  // handlePageClick is use to go particularPage Number 
   const handlePageClick = (pageNumber) => {
     setPage(pageNumber);
     onPageChange(pageNumber);
   };
 
+  // it is use to don't Show the Pagination
   if (totalPages === 0) {
     return null;
   }
 
   return (
     <div className="pagination flex justify-center space-x-3">
+      {/* Common Button for PreviousPage*/}
       <Button
         onClick={handlePrevious}
         disabled={page === 1}
@@ -43,6 +49,8 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
       >
         <i className="fa-solid fa-chevron-left dark:text-white"></i>
       </Button>
+
+      {/* Common Button for Page Number*/}
       {[...Array(totalPages)].map((_, index) => (
         <Button
           key={index}
@@ -56,6 +64,8 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
           {index + 1}
         </Button>
       ))}
+
+      {/* Common Button NextPage*/}
       <Button
         onClick={handleNext}
         disabled={page === totalPages}

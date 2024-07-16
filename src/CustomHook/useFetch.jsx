@@ -9,8 +9,10 @@ const useFetch = (url) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // debouncedSearchText is use to cancel the other api calles
   const debouncedSearchText = useDebounce(searchText, 300);
 
+  // getData is a function to fetch the data from server
   const getData = async () => {
     try {
       const response = await fetch(url);
@@ -21,10 +23,11 @@ const useFetch = (url) => {
       setTableData(data.data);
       setFilteredData(data.data);
     } catch (error) {
-      console.error("Error fetching data", error);
+      console.error("Error While fetching data", error);
     }
   };
 
+  // thi useEffect use for filter the data  and pagination
   useEffect(() => {
     const filterData = () => {
       let filtered = tableData.filter((item) =>
@@ -47,6 +50,7 @@ const useFetch = (url) => {
     filterData();
   }, [debouncedSearchText, selectedOptions, tableData, isSwitchActive]);
 
+  // this useEffect is use to initialize data and it's depend on search dropdown and Switch
   useEffect(() => {
     getData();
   }, [debouncedSearchText, selectedOptions, isSwitchActive]);

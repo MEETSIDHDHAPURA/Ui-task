@@ -103,6 +103,7 @@ const DragandDrop = () => {
           {/* Export Data is use for Exporting Data To ExcelSheet */}
           <CSVLink data={items}>
             <Button className={"mx-3 text-white border-none"}>
+              <i className="fa-regular fa-file"></i>
               Export Data
             </Button>
           </CSVLink>

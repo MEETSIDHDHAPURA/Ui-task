@@ -1,18 +1,21 @@
 const TextField = ({
   placeholder,
-  width,
-  bgcolor,
+  className,
   onChange,
-  border,
+  type,
+  disabled,
   value,
 }) => {
   return (
+    // this is the common TextField
+    // it has value,type,disabled,placeholder
     <input
-      type="text"
+      type={type}
+      disabled={disabled}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className={`p-2 ${bgcolor} ${width} outline-none border-2 ${border} rounded-md dark:bg-zinc dark:border-none dark:text-secondary`}
+      className={`${className} p-2 outline-none border-2 rounded-md dark:bg-zinc dark:border-none dark:text-secondary`}
     />
   );
 };

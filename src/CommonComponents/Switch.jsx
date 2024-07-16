@@ -1,6 +1,10 @@
 import React from "react";
 
 const Switch = ({ isActive, onToggle }) => {
+
+  // this is the common Switch
+  // it get Two parameters first one is isActive or not
+  // And the second one is the onChange function
   return (
     <label className="relative inline-block w-8 h-4">
       <input

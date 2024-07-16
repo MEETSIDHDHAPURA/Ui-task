@@ -10,11 +10,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const FirstScreen = () => {
-
   // UseStates
   // open State is use for dailog box
   const [open, setOpen] = useState(false);
-  
+
   // SelectedOptions State is use for store the vlaue of dropdown
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -105,8 +104,9 @@ const FirstScreen = () => {
             1). First Field
           </Text>
           <TextField
-            width="w-[30%]"
-            border={"border-[#5982f180]"}
+            type={"text"}
+            disabled={true}
+            className={"w-[30%] border-[#5982f180]"}
             placeholder="First Field"
           />
           <Text
@@ -125,8 +125,8 @@ const FirstScreen = () => {
             2). Second Field
           </Text>
           <TextField
-            width="w-[40%]"
-            border={"border-[#c4eed0]"}
+            type={"text"}
+            className={"w-[40%] border-[#c4eed0]"}
             placeholder="Second Field"
           />
           <Text
@@ -145,8 +145,8 @@ const FirstScreen = () => {
             3). Third Field
           </Text>
           <TextField
-            width="w-[50%]"
-            border={"border-gray-500"}
+            type={"file"}
+            className={"w-[50%] border-gray-500"}
             placeholder="Third Field"
           />
           <Text
@@ -211,7 +211,7 @@ const FirstScreen = () => {
         </Text>
       </div>
       <div className="flex flex-col px-4 gap-4">
-        /{/* Accordion is common Component */}
+        {/* Accordion is common Component */}
         <Accordion
           items={accordiondata}
           hover="hover:bg-gray-300"
@@ -233,6 +233,7 @@ const FirstScreen = () => {
             }
           >
             Open Dialog
+            <i className="fa-solid fa-arrow-up-from-bracket"></i>
           </Button>
         </div>
 
@@ -276,12 +277,11 @@ const FirstScreen = () => {
               </div>
               <hr />
               <div className="flex justify-end gap-3">
-
                 {/* Dialog Action Buttons */}
                 <Button
                   onClick={handleClose}
                   className={
-                    "bg-blue-600 hover:bg-transparent border border-blue-600 text-white hover:text-blue-600 dark:hover:border-gray-400 rounded-lg px-6 py-2 mt-3"
+                    "bg-blue-600 hover:bg-transparent border border-blue-600 text-white hover:text-blue-600 dark:hover:border-gray-400 rounded-lg px-6 py-2 mt-3 duration-300"
                   }
                 >
                   Close
@@ -289,7 +289,7 @@ const FirstScreen = () => {
                 <Button
                   onClick={popup}
                   className={
-                    "px-5 py-2 mt-3 rounded-lg text-blue-600 hover:text-white dark:hover:border-blue-600 border-blue-600 border hover:bg-blue-600 dark:border-secondary"
+                    "px-5 py-2 mt-3 rounded-lg text-white hover:text-white dark:hover:border-blue-600 border-blue-600 border hover:bg-blue-600 dark:border-secondary"
                   }
                 >
                   Save
